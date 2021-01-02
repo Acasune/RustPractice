@@ -1,11 +1,11 @@
 fn main() {
-  let number = 1;
-  if 0 < number {
-      println!("0 < number");
-  } else if number < 0 {
-      println!("number < 0");
-  } else {
-      println!("0 ==number")
-  }
-}
+  let mut cnt = 0;
 
+  let result = loop{
+      println!("count: {}", cnt);
+      cnt += 1;
+      if cnt == 10{
+          break cnt;
+      }
+  };
+}
