@@ -1,32 +1,25 @@
 fn main() {
-    let it = Iter {
-        current: 0,
-        max: 10,
+    let p = Person{
+        name: String::from("Taro"),
+        age: 20,
     };
-    for num in it {
-        println!("{}", num);
-    }
+
+    p.say_name();
+    p.say_age();
 
 }
 
-struct Iter {
-    current: usize,
-    max: usize,
+struct Person {
+    name: String,
+    age: u32,
 }
 
-impl Iterator for Iter {
-    type Item = usize;
-
-    fn next(&mut self) -> Option<Self::Item> {
-        self.current += 1;
-        if self.current -1 < self.max {
-            Some(self.current -1)
-        } else {
-            None
-        }
+impl Person {
+    fn say_name(&self) {
+        println!("I am {}.", self.name);
     }
 
-    // fn next($mut self) -> Option<usize> {
-
-    // }
+    fn say_age(&self) {
+        println!("I am {} year(s) old", self.age);
+    }
 }
