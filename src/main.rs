@@ -1,10 +1,11 @@
 fn main() {
-    let byte_array = [b'h', b'e', b'l', b'l', b'o'];
-    print(Box::new(byte_array));
-    let byte_array = [b'w',b'o', b'r', b'l', b'd', b'!'];
-    print(Box::new(byte_array));
+  let number = 1;
+  if 0 < number {
+      println!("0 < number");
+  } else if number < 0 {
+      println!("number < 0");
+  } else {
+      println!("0 ==number")
+  }
 }
 
-fn print(s: Box<[u8]>) {
-    println!("{:?}", s);
-}
