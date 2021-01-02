@@ -1,38 +1,31 @@
-enum Emotion {
-    Anger,
-    Happy,
-}
+#[derive(Eq, PartialEq)]
+struct A(i32);
+#[derive(PartialEq, PartialOrd)]
+struct B(f32);
+#[derive(Copy, Clone)]
+struct C;
 
-trait Emotional {
-    fn get_happy(&mut self) -> String;
-    fn get_anger(&mut self) -> String;
-    fn tell_state(&self) -> String;
-}
-
-struct HappyPerson {
-    name: String,
-    state: Emotion,
-}
-
-impl Emotional for HappyPerson {
-    fn get_anger(&mut self) -> String {
-        unimplemented!()
-    }
-
-    fn get_happy(&mut self) -> String {
-        format!("{} is always happy.", self.name)
-    }
-
-    fn tell_state(&self) -> String{
-        todo!()
-    }
-}
+#[derive(Clone)]
+struct D;
+#[derive(Debug)]
+struct E;
+#[derive(Default)]
+struct F;
 
 fn main(){
-    let mut p = HappyPerson {
-        name: "Takahashi".to_string(),
-        state: Emotion::Happy,
-    };
-    println!("{}",p.get_happy());
+    println!("{:?}", A(0) ==A(1));
+
+    println!("{:?}", B(1.0) > B(0.0));
+
+    let c0 = C;
+    let _c1 = c0;
+    let _c2 = c0;
+
+    let d0 = D;
+    let _d1 = d0.clone();
+
+    println!("{:?}", E);
+
+    let _f = F::default();
 
 }
